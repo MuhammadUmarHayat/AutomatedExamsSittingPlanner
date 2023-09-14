@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Exam_Planner.Models.RoomModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    @Html.ActionLink("Admin Pannel ", "Index", "AdminHome")|
+
+    @Html.ActionLink("Create New Student ", "AddStudent", "Student")|
+    @Html.ActionLink("Student List", "Index", "Student")|
+
+    @Html.ActionLink("Creat New Room", "AddRoom", "Room")|
+    @Html.ActionLink("Room List", "Index", "Room")|
+    @Html.ActionLink("Create New Employee", "AddFaculty", "Faculty")|
+    @Html.ActionLink("List Of Employees", "Index", "Faculty")|
+    @Html.ActionLink("Create Time Table", "AddTimeTable", "TimteTable")|
+    @Html.ActionLink("Show Time Table", "Index", "TimteTable")|
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Floor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RoomNo }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RoomNo }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RoomNo })
+            </td>
+        </tr>
+    }
+
+</table>

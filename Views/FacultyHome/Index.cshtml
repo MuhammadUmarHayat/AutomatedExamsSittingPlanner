@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome</h2>
+
+
+@{
+    string userid = "";
+    if (Session["UserID"] != null)
+    {
+        userid = Session["UserID"].ToString();
+        ViewBag.UserID = userid;
+    }
+
+}
+<h2>
+    @ViewBag.UserID
+</h2>
+<div>
+    @Html.ActionLink("Faculty Member Pannel ", "Index", "FacultyHome")|
+    @Html.ActionLink("Create New Student ", "AddStudent", "Student")|
+    @Html.ActionLink("Student List", "Index", "Student")|
+    @Html.ActionLink("Creat New Room", "AddRoom", "Room")|
+    @Html.ActionLink("Room List", "Index", "Room")|
+    @Html.ActionLink("View Staff Time Table", "ViewTimeTable", "FacultyHome")|
+
+    @Html.ActionLink("View Student Date sheet", "ViewDateSheet", "FacultyHome")|
+    @Html.ActionLink("View Student Seating Plan", "ViewSeatingPlan", "FacultyHome")|
+
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>

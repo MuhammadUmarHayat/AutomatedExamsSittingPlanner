@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Exam_Planner.Models.FacultyModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of Employees</h2>
+
+<div>
+
+    @Html.ActionLink("Admin Pannel ", "Index", "AdminHome")|
+
+    @Html.ActionLink("Create New Student ", "AddStudent", "Student")|
+    @Html.ActionLink("Student List", "Index", "Student")|
+
+    @Html.ActionLink("Creat New Room", "AddRoom", "Room")|
+    @Html.ActionLink("Room List", "Index", "Room")|
+    @Html.ActionLink("Create New Employee", "AddFaculty", "Faculty")|
+    @Html.ActionLink("List Of Employees", "Index", "Faculty")|
+    @Html.ActionLink("Create Time Table", "AddTimeTable", "TimteTable")|
+    @Html.ActionLink("Show Time Table", "Index", "TimteTable")|
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>
+
+<table border="1" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Full_name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Of_Appointment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Full_name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Of_Appointment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.ActionLink("Edit-Faculty", "Edit", new { id = item.EmpID }) |
+                @Html.ActionLink("Faculty-Details", "Details", new { id = item.EmpID }) |
+                @Html.ActionLink("Delete-Faculty", "Delete", new { id = item.EmpID })
+            </td>
+        </tr>
+    }
+
+</table>

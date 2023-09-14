@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Exam_Planner.Models.DateSheetModel>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateSheetID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Studentid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExamDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateSheetID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Studentid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ExamDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Subject)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ExTime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.RoomNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeatNo)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DateSheetID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.DateSheetID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DateSheetID })
+    </td>
+</tr>
+}
+
+</table>

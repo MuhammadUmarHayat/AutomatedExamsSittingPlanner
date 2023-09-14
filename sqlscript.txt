@@ -1,0 +1,66 @@
+﻿CREATE TABLE [dbo].[accounts] (
+    [Id]         INT           IDENTITY (1, 1) NOT NULL,
+    [studentid]  NVARCHAR (50) NULL,
+    [program]    NVARCHAR (50) NULL,
+    [amount]     NVARCHAR (50) NULL,
+    [month]      NVARCHAR (50) NULL,
+    [date]       NVARCHAR (50) NULL,
+    [status]     NVARCHAR (50) NULL,
+    [receivedBy] NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[employees] (
+    [EmpID]               NVARCHAR (50)  NOT NULL,
+    [full_name]           NVARCHAR (50)  NULL,
+    [password]            NVARCHAR (50)  NULL,
+    [designation]         NVARCHAR (50)  NULL,
+    [date_of_appointment] NVARCHAR (50)  NULL,
+    [status]              NVARCHAR (50)  NULL,
+    [emp_type]            NVARCHAR (50)  NULL,
+    [address]             NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([EmpID] ASC)
+);
+
+
+CREATE TABLE [dbo].[faculties] (
+    [EmpID]               NVARCHAR (50)  NOT NULL,
+    [full_name]           NVARCHAR (50)  NULL,
+    [password]            NVARCHAR (50)  NULL,
+    [designation]         NVARCHAR (50)  NULL,
+    [date_of_appointment] NVARCHAR (50)  NULL,
+    [status]              NVARCHAR (50)  NULL,
+    [emp_type]            NVARCHAR (50)  NULL,
+    [address]             NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([EmpID] ASC)
+);
+
+CREATE TABLE [dbo].[rooms] (
+    [roomNo]   NVARCHAR (50) NOT NULL,
+    [floor]    NVARCHAR (50) NULL,
+    [capacity] INT           NULL,
+    PRIMARY KEY CLUSTERED ([roomNo] ASC)
+);
+
+CREATE TABLE [dbo].[students] (
+    [studentid]  NVARCHAR (50) NOT NULL,
+    [name]       NVARCHAR (50) NULL,
+    [program]    NVARCHAR (50) NULL,
+    [rollnumber] NVARCHAR (50) NULL,
+    [password]   NVARCHAR (50) NULL,
+    [gender]     NVARCHAR (50) NULL,
+    [status]     NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([studentid] ASC)
+);
+
+CREATE TABLE [dbo].[time_tables] (
+    [Id]      INT           IDENTITY (1, 1) NOT NULL,
+    [empName] NVARCHAR (50) NULL,
+    [empId]   NVARCHAR (50) NULL,
+    [roomno]  NVARCHAR (50) NULL,
+    [date]    NVARCHAR (50) NULL,
+    [time]    NVARCHAR (50) NULL,
+    [status]  NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

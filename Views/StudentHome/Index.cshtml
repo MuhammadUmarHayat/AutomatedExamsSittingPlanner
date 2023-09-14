@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome To Student Panel</h2>
+
+
+@{
+    string userid = "";
+    if (Session["UserID"] != null)
+    {
+        userid = Session["UserID"].ToString();
+        ViewBag.UserID = userid;
+    }
+
+}
+<h2>
+    @ViewBag.UserID
+</h2>
+<div>
+    @Html.ActionLink("Student Pannel ", "Index", "StudentHome")|
+
+
+    @Html.ActionLink("View Student Date sheet", "ViewDateSheet", "StudentHome")|
+    @Html.ActionLink("Generate RollNo Slip ", "ViewRollnoSlip", "StudentHome")|
+    @Html.ActionLink("View Student Siting Plan", "ViewSiting", "StudentHome")|
+
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>

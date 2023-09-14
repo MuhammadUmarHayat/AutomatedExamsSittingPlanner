@@ -1,0 +1,69 @@
+﻿@model Exam_Planner.Models.RoomModel
+
+@{
+    ViewBag.Title = "AddRoom";
+}
+
+<h2>Add Room</h2>
+<div>
+
+    @Html.ActionLink("Admin Pannel ", "Index", "AdminHome")|
+    @Html.ActionLink("Create New Student ", "AddStudent", "Student")|
+    @Html.ActionLink("Student List", "Index", "Student")|
+
+    @Html.ActionLink("Creat New Room", "AddRoom", "Room")|
+    @Html.ActionLink("Room List", "Index", "Room")|
+    @Html.ActionLink("Create New Employee", "AddFaculty", "Faculty")|
+    @Html.ActionLink("List Of Employees", "Index", "Faculty")|
+    @Html.ActionLink("Create Time Table", "AddTimeTable", "TimteTable")|
+    @Html.ActionLink("Show Time Table", "Index", "TimteTable")|
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>
+
+
+@using (Html.BeginForm("AddRoom", "Room", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>RoomModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoomNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RoomNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RoomNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Floor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Floor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @ViewBag.Message
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

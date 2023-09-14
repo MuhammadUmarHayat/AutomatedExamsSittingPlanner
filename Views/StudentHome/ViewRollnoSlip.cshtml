@@ -1,0 +1,88 @@
+﻿@model Exam_Planner.Models.DateSheetModel
+
+<script>
+    function doPrint() {
+        var prtContent = document.getElementById('div1');
+        prtContent.border = 0; //set no border here
+        var WinPrint = window.open('', '', 'left=100,top=100,width=1000,height=1000,toolbar=0,scrollbars=1,status=0,resizable=1');
+        WinPrint.document.write(prtContent.outerHTML);
+        WinPrint.document.close();
+        WinPrint.focus();
+        WinPrint.print();
+        WinPrint.close();
+    }
+</script>
+
+<p>
+    @Html.ActionLink("Student Pannel ", "Index", "StudentHome")
+</p>
+
+<p>
+    <button type="submit" name="print" onclick="doPrint()">Save as PDF</button>
+
+
+</p>
+<div id="div1">
+   
+        <h4>Student Roll Number Slip</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DateSheetID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateSheetID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Studentid)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Studentid)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExamDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExamDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subject)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subject)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RoomNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SeatNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SeatNo)
+            </dd>
+
+        </dl>
+    </div>
+

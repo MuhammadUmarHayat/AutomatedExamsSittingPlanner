@@ -1,0 +1,95 @@
+﻿@model Exam_Planner.Models.StudentModel
+
+@{
+    ViewBag.Title = "AddStudent";
+}
+
+<h2>AddStudent</h2>
+<div>
+
+
+    @Html.ActionLink("Create New Student ", "AddStudent", "Student")|
+    @Html.ActionLink("Student List", "Index", "Student")|
+
+    @Html.ActionLink("Creat New Room", "AddRoom", "Room")|
+    @Html.ActionLink("Room List", "Index", "Room")|
+    @Html.ActionLink("Create New Employee", "AddFaculty", "Faculty")|
+    @Html.ActionLink("List Of Employees", "Index", "Faculty")|
+    @Html.ActionLink("Create Time Table", "AddTimeTable", "TimteTable")|
+    @Html.ActionLink("Show Time Table", "Index", "TimteTable")|
+    @Html.ActionLink("Logout", "Logout", "FacultyHome")|
+</div>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+    {
+        <center>
+
+
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th colspan="2" align="center">Person Details</th>
+                </tr>
+
+                <tr>
+                    <td>Your CNIC: </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Studentid)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name: </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Program: </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Program)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Rollnumber: </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Rollnumber)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password)
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender: </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                       { new SelectListItem{Text="Male", Value="M"},
+                         new SelectListItem{Text="Female", Value="F"}}, "Please select")
+                    </td>
+                </tr>
+                <tr>
+                    <td>Status: </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Status)
+                    </td>
+                </tr>
+                <tr>
+                    <td>@ViewBag.Message</td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </center>
+    }
+</body>
+</html>
